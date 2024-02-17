@@ -1,4 +1,4 @@
-## Model Summarization based on google/flan-t5-base
+## ChatBot based on google/flan-t5-base
 
 ### Model Description
 * Model type: Language model
