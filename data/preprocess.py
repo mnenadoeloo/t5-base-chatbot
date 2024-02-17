@@ -1,5 +1,8 @@
 import pandas as pd
 from datasets import Dataset
+from transformers import AutoTokenizer
+from transformers import DataCollatorForSeq2Seq
+
 
 train_df = pd.read_parquet("/content/drive/MyDrive/test.parquet")
 test_df = pd.read_parquet("/content/drive/MyDrive/test.parquet")
@@ -18,3 +21,14 @@ def preprocess_function(sample, padding="max_length"):
 
 train_tokenized_dataset = train_data.map(preprocess_function, batched=True, remove_columns=train_data.column_names)
 test_tokenized_dataset = test_data.map(preprocess_function, batched=True, remove_columns=test_data.column_names)
+
+model_name = "google/flan-t5-base"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+label_pad_token_id = -100
+data_collator = DataCollatorForSeq2Seq(
+    tokenizer,
+    model=model,
+    label_pad_token_id=label_pad_token_id,
+    pad_to_multiple_of=8
+)
