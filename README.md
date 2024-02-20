@@ -3,6 +3,9 @@
 This bot can answer almost all your questions. Unfortunately, it is not yet perfect, and therefore can only conduct dialogue in English.
 google/flan-t5-base was used for training.
 
+## Example of how the bot works
+![image](https://github.com/mnenadoeloo/t5-base-chatbot/assets/104631630/65b64444-863b-4a34-9f2a-ff8043c80028)
+
 
 ### Model Description
 * Model type: Language model
